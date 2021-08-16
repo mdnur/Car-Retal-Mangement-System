@@ -1,6 +1,6 @@
 package abstructs;
 
-public class Vehicle {
+public abstract class Vehicle {
 	protected int id;
 	protected String name;
 	protected int Year;

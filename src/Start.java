@@ -36,7 +36,7 @@ public class Start
 					System.out.println("	1. Add New Vehicle");
 					System.out.println("	2. Remove Vehicle");
 					System.out.println("	3. See all Vehicle");
-					System.out.println("	5. Go Back\n");
+					System.out.println("	4. Go Back\n");
 					System.out.print("What do you want to do? : ");
 					int second1 = sc.nextInt();
 					
@@ -77,7 +77,7 @@ public class Start
 								manager.insertVehicle(vehicle);
 								break;
 							}else if(type == 2){
-								Vehicle vehicle = new Car();
+								Vehicle vehicle = new Van();
 								vehicle.setId(vehicleID);
 								vehicle.setName(name);
 								vehicle.setMake(make);
@@ -239,10 +239,10 @@ public class Start
 							System.out.print("Enter Vehicle ID: ");
 							int vehicleID = sc.nextInt();
 							
-							System.out.print("Enter Renting Date ID: ");
+							System.out.print("Enter Renting Date (dd/mm/yyyy): ");
 							String rentDate = sc.next();
 							
-							System.out.print("Enter Renting Return Date ID: ");
+							System.out.print("Enter Renting Return Date (dd/mm/yyyy): ");
 							String returnDate = sc.next();
 							
 							
@@ -259,7 +259,7 @@ public class Start
 								System.out.println("Rent is done");
 								break;
 							}else {
-								System.out.println("Vehicle id or customer id is not corrent, try again");
+								System.out.println("Vehicle id or customer id is not correct, try again");
 							}
 						
 							break;

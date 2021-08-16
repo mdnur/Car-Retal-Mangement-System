@@ -9,5 +9,5 @@ public interface RentalInterface {
 
 	public Rentals getRentals(int id);
 
-	public void showAllCustomers();
+	public void showAllRentals();
 }
