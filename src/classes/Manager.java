@@ -6,8 +6,9 @@ import abstructs.Vehicle;
 import interfaces.CustomerInterface;
 import interfaces.RentalInterface;
 import interfaces.VehicleInterface;
+import interfaces.TransactionInterFace;
 
-public class Manager implements CustomerInterface, RentalInterface, VehicleInterface {
+public class Manager implements CustomerInterface, RentalInterface, VehicleInterface,TransactionInterFace {
 	private Customer[] customers = new Customer[100];
 	private Vehicle vehicles[] = new Vehicle[100];
 	private Rentals rentals[] = new Rentals[100];
@@ -344,5 +345,20 @@ public class Manager implements CustomerInterface, RentalInterface, VehicleInter
 		System.out.println("----------------------------------");
 
 		System.out.println("----------------------------------");
+	}
+	public void removeTransaction(Transaction transaction){
+		int flag = 0;
+		for (int i = 0; i < vehicles.length; i++) {
+			if (transactions[i] == transaction) {
+				transactions[i] = null;
+				flag = 1;
+				break;
+			}
+		}
+		if (flag == 1) {
+			System.out.println("Transaction Removed");
+		} else {
+			System.out.println("Transaction Not Remove");
+		}
 	}
 }

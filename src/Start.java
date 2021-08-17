@@ -346,7 +346,8 @@ public class Start
 					System.out.println("	1. Pay the rent");
 					System.out.println("	2. Show Transaction History");
 					System.out.println("	3. Search Transaction ");
-					System.out.println("	4. Go Back\n");
+					System.out.println("	4. Delete Transaction ");
+					System.out.println("	5. Go Back\n");
 					System.out.print("What do you want to do? : ");
 					int second4 = sc.nextInt();
 					
@@ -418,6 +419,23 @@ public class Start
 				
 							break;
 						case 4:
+								
+								System.out.print("Enter Transaction id: ");
+								int trans3 = sc.nextInt();
+								
+								Transaction trans5 = manager.getTransaction(trans3);
+								
+								
+								if(trans5 != null) {
+									manager.removeTransaction(trans5);
+									System.out.println("Transaction id of "+trans3 +" is deleted");
+								}else {
+									System.out.println("Transaction id of "+trans3 +" is not deleted");
+								}	
+								
+				
+							break;
+						case 5:
 						
 							System.out.println("You have Selected to Go Back");
 							break;
