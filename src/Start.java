@@ -35,8 +35,9 @@ public class Start
 					System.out.println("Here are Some Options for You: \n");
 					System.out.println("	1. Add New Vehicle");
 					System.out.println("	2. Remove Vehicle");
-					System.out.println("	3. See all Vehicle");
-					System.out.println("	4. Go Back\n");
+					System.out.println("	3. Search Vehicle");
+					System.out.println("	4. See all Vehicle");
+					System.out.println("	5. Go Back\n");
 					System.out.print("What do you want to do? : ");
 					int second1 = sc.nextInt();
 					
@@ -95,8 +96,8 @@ public class Start
 							
 						case 2:
 							
-							System.out.println("You have Selected to remove an existing Employee");
-							System.out.print("Enter Employee Id: ");
+							System.out.println("You have Selected to remove an existing Vehicle");
+							System.out.print("Enter Vehicle Id: ");
 							
 							manager.removeVehicle(manager.getVehicle(sc.nextInt()));
 							
@@ -104,14 +105,26 @@ public class Start
 							
 						case 3:
 							
-							System.out.println("You have Selected to see all Employees");
+							System.out.println("You have Selected to remove an existing Vehicle");
+							System.out.print("Enter Vehicle Id: ");
+							Vehicle vehicle = manager.getVehicle(sc.nextInt());
+							if(vehicle != null){
+								manager.searchVehicle(vehicle);
+							}
+							
+							
+							break;
+							
+						case 4:
+							
+							System.out.println("You have Selected to see all Vehicle");
 							
 							manager.showAllVehicles();
 							
 							
 							break;
 						
-						case 4:
+						case 5:
 							
 							System.out.println("You have Selected to Go Back");
 							break;
@@ -133,7 +146,7 @@ public class Start
 					System.out.println("	1. Create New Customer");
 					System.out.println("	2. Remove Existing Customer");
 					System.out.println("	3. See all Customers");
-					System.out.println("	4. See all Customers");
+					System.out.println("	4. Search a Customers");
 					System.out.println("	5. Go Back\n");
 					System.out.print("What do you want to do? : ");
 					int second2 = sc.nextInt();
@@ -142,7 +155,7 @@ public class Start
 					{
 						case 1:
 
-							System.out.print("Enter Customer Nid: ");
+							System.out.print("Enter Customer id: ");
 							int id = sc.nextInt();
 							System.out.print("Enter Customer Name: ");
 							String name1 = sc.next();
@@ -220,9 +233,10 @@ public class Start
 					System.out.println("Here are Some Options for You: \n");
 					System.out.println("	1. Rent Car ");
 					System.out.println("	2. Remove Existing Renting car  of a Customer");
-					System.out.println("	3. See all Renting car of a Customer");
-					System.out.println("	4. See all Renting Vehicle");
-					System.out.println("	5. Go Back\n");
+					System.out.println("	3. Search Renting Car");
+					System.out.println("	4. See all Renting car of a Customer");
+					System.out.println("	5. See all Renting Vehicle");
+					System.out.println("	6. Go Back\n");
 					System.out.print("What do you want to do? : ");
 					int second3 = sc.nextInt();
 					
@@ -280,8 +294,26 @@ public class Start
 							}
 							
 							break;
-							
 						case 3:
+						
+								System.out.print("Enter Rental id: ");
+								int rentalID11 = sc.nextInt();
+								
+								Rentals rental12 = manager.getRentals(rentalID11);
+								
+								
+								if(rental12 != null) {
+									System.out.println("Result from the search");
+									manager.searchRental(rental12);
+									
+								}else {
+									System.out.println("rental id of "+rentalID11 +" is not found");
+								}
+						
+							
+							break;
+							
+						case 4:
 						
 							System.out.print("Enter Customer ID: ");
 							int nid3 = sc.nextInt();
@@ -289,12 +321,12 @@ public class Start
 							manager.getCustomer(nid3).showAllRentals();
 							break;
 							
-						case 4:
+						case 5:
 							
 							manager.showAllRentals();
 							break;
 							
-						case 5:
+						case 6:
 						
 							System.out.println("Going Back . . .");
 							break;
@@ -313,7 +345,8 @@ public class Start
 					System.out.println("Here are Some Options for You: \n");
 					System.out.println("	1. Pay the rent");
 					System.out.println("	2. Show Transaction History");
-					System.out.println("	5. Go Back\n");
+					System.out.println("	3. Search Transaction ");
+					System.out.println("	4. Go Back\n");
 					System.out.print("What do you want to do? : ");
 					int second4 = sc.nextInt();
 					
@@ -368,6 +401,23 @@ public class Start
 							break;
 						
 						case 3:
+								
+								System.out.print("Enter Transaction id: ");
+								int rentalID11 = sc.nextInt();
+								
+								Transaction trans1 = manager.getTransaction(rentalID11);
+								
+								
+								if(trans1 != null) {
+									System.out.println("Result from the search");
+									manager.searchTransaction(trans1);
+									
+								}else {
+									System.out.println("Transaction id of "+rentalID11 +" is not found");
+								}
+				
+							break;
+						case 4:
 						
 							System.out.println("You have Selected to Go Back");
 							break;
@@ -384,7 +434,7 @@ public class Start
 				case 5:
 					
 					System.out.println("You have selected to exit the application");
-					System.out.println("Thank you for using Car rent managemnet System");
+					System.out.println("Thank you for using Car rent management System");
 					choice = false;
 					sc.close();
 					break;

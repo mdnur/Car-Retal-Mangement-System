@@ -7,7 +7,7 @@ import interfaces.CustomerInterface;
 import interfaces.RentalInterface;
 import interfaces.VehicleInterface;
 
-public class Manager implements CustomerInterface,RentalInterface,VehicleInterface{
+public class Manager implements CustomerInterface, RentalInterface, VehicleInterface {
 	private Customer[] customers = new Customer[100];
 	private Vehicle vehicles[] = new Vehicle[100];
 	private Rentals rentals[] = new Rentals[100];
@@ -119,7 +119,6 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 	public void showAllVehicles() {
 		for (Vehicle vehicle : vehicles) {
 
-			
 			if (vehicle != null) {
 				System.out.println("**********************************");
 				System.out.println("Vehicles Id: " + vehicle.getId());
@@ -130,8 +129,7 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 				System.out.println("Vehicles vehicle Type: " + vehicle.getVehicleType());
 				System.out.println("Vehicles vehicle Seat: " + vehicle.getSeat());
 				System.out.println("Vehicles vehicle rentPrice: " + vehicle.getRentPrice());
-				
-				
+
 				System.out.println("----------------------------------");
 
 				System.out.println("----------------------------------");
@@ -194,7 +192,7 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 
 	public void showAllRentals() {
 		for (Rentals rental : rentals) {
-			
+
 			if (rental != null) {
 				System.out.println("**********************************");
 				System.out.println("Rentals ID: " + rental.getId());
@@ -202,9 +200,7 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 				System.out.println("Rentals Customer ID: " + rental.getCustomerID().getId());
 				System.out.println("Rentals Rent Date: " + rental.getRentDate());
 				System.out.println("Rentals Rent Return Date: " + rental.getReturnDate());
-				
-				
-				
+
 				System.out.println("----------------------------------");
 
 				System.out.println("----------------------------------");
@@ -230,7 +226,7 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 		}
 		return vehicle;
 	}
-	
+
 	public void insertTransaction(Transaction transaction) {
 		int flag = 0;
 		for (int i = 0; i < transactions.length; i++) {
@@ -246,10 +242,9 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 			System.out.println("Can Not Insert");
 		}
 	}
-	
+
 	public void showAllTransaction() {
 		for (Transaction transaction : transactions) {
-			
 
 			if (transaction != null) {
 				System.out.println("**********************************");
@@ -260,7 +255,7 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 				System.out.println("Transaction transactions date: " + transaction.getTransDate());
 				System.out.println("Transaction payment Status: " + transaction.isPaymentStatus());
 				System.out.println("Transaction Paying amount: " + transaction.getPayingAmount());
-				
+
 				System.out.println("----------------------------------");
 
 				System.out.println("----------------------------------");
@@ -269,7 +264,7 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 	}
 
 	public void searchCustomer(Customer customer) {
-		
+
 		System.out.println("**********************************");
 		System.out.println("Customer ID: " + customer.getId());
 		System.out.println("Customer Name: " + customer.getName());
@@ -283,10 +278,71 @@ public class Manager implements CustomerInterface,RentalInterface,VehicleInterfa
 		System.out.println("----------------------------------");
 	}
 
+	public void searchVehicle(Vehicle vehicle) {
+		System.out.println("**********************************");
+		System.out.println("Vehicle ID: " + vehicle.getId());
+		System.out.println("Vehicle Name: " + vehicle.getName());
+		System.out.println("Vehicle Year: " + vehicle.getYear());
+		System.out.println("Vehicle Make: " + vehicle.getMake());
+		System.out.println("Vehicle Model: " + vehicle.getModel());
+		System.out.println("Vehicle Vehicle: " + vehicle.getVehicleStatus());
+		System.out.println("Vehicle Vehicle Type: " + vehicle.getVehicleType());
+		System.out.println("Vehicle Seat: " + vehicle.getSeat());
+		System.out.println("Vehicle Rent Price: " + vehicle.getRentPrice());
+		System.out.println("----------------------------------");
 
+		System.out.println("----------------------------------");
+	}
 
+	public void searchRental(Rentals rental) {
+		System.out.println("**********************************");
+		System.out.println("Rentals ID: " + rental.getId());
+		System.out.println("Rentals vehicle ID: " + rental.getVehicleID().getId());
+		System.out.println("Rentals Customer ID: " + rental.getCustomerID().getId());
+		System.out.println("Rentals Rent Date: " + rental.getRentDate());
+		System.out.println("Rentals Rent Return Date: " + rental.getReturnDate());
 
+		System.out.println("----------------------------------");
 
+		System.out.println("----------------------------------");
+	}
 
+	public Transaction getTransaction(int id) {
+		Transaction transaction = null;
 
+		for (int i = 0; i < transactions.length; i++) {
+			if (transactions[i] != null) {
+				if (transactions[i].getId() == id) {
+					transaction = transactions[i];
+					break;
+				}
+			}
+		}
+		if (transaction != null) {
+			System.out.println("Transaction Found");
+		} else {
+			System.out.println("Transaction Not Found");
+		}
+		return transaction;
+	}
+
+	public void searchTransaction(Transaction transaction) {
+		System.out.println("**********************************");
+		System.out.println("**********************************");
+				System.out.println("Transaction ID: " + transaction.getId());
+				System.out.println("Transaction Retals ID: " + transaction.getRentalsID().getId());
+				System.out.println("Transaction car Id: " + transaction.getCarID().getId());
+				System.out.println("Transaction customer ID: " + transaction.getCustomerID().getId());
+				System.out.println("Transaction transactions date: " + transaction.getTransDate());
+				System.out.println("Transaction payment Status: " + transaction.isPaymentStatus());
+				System.out.println("Transaction Paying amount: " + transaction.getPayingAmount());
+
+				System.out.println("----------------------------------");
+
+				System.out.println("----------------------------------");
+
+		System.out.println("----------------------------------");
+
+		System.out.println("----------------------------------");
+	}
 }
